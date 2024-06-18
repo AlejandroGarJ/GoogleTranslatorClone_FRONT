@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+}
+
+#prompt {
+    flex-shrink: 0;
+}
+
+#textarea {
+    min-width: 100px;
+    max-width: 100px;
+    word-break: break-all;
+    cursor: text;
+    background-color: rgba(132, 225, 132, 0.9);
+    border: 1px solid black;
+}

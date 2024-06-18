@@ -1,0 +1,65 @@
+.main {
+    margin-top: 0px;
+
+    height: 100%;
+}
+
+.section {
+    height: 100%;
+    margin-left: 16.6%;
+    margin-right: 16.6%;
+    padding-top: 15px;
+}
+
+.translationTypes {
+    display: flex;
+    gap: 8px;
+}
+
+.translationType {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 16px 4px 11px;
+    border: solid #e0e0e0 1px;
+
+    border-radius: 4px;
+    color: #174ea6;
+    font-family: "Product Sans", Arial, sans-serif;
+    font-weight: 530;
+    font-size: .875rem;
+    letter-spacing: .0107142857em;
+
+}
+
+.translationTypes {
+    fill: #174ea6;
+}
+
+.translationType:hover {
+    background-color: #f6fafe;
+    cursor: pointer;
+}
+
+.languages {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputLanguages {
+    display: flex;
+    padding-left: 8px;
+    align-items: center;
+    width: 43%;
+    flex: 1;
+}
+
+
+
+.outputLanguages {
+    display: flex;
+    padding-left: 10px;
+    flex: 1;
+}

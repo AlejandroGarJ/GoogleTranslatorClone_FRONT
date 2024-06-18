@@ -1,0 +1,18 @@
+.container {
+
+    padding: 16px 8px 16px 8px;
+    color: #5f6368;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.container:hover {
+    background-color: #f6fafe;
+    cursor: pointer;
+}
+
+.selected {
+    border-bottom: 2px solid #1a73e8;
+    color: #1a73e8;
+}

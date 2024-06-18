@@ -1,0 +1,37 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<!-- eslint-disable @angular-eslint/template/no-autofocus -->
+<div class="container">
+    <div class="inputTextArea" id="textareaContainer">
+        <!-- eslint-disable-next-line @angular-eslint/template/no-autofocus -->
+
+        <div class="textarea">
+            <div class="textareaEditable" id="textareaEditable" #textareaEditable contenteditable="true" autofocus
+                name="textareaEditable" (input)="adjustTextareaHeight($event)">
+
+            </div>
+        </div>
+        <div class="closeIcon" style="width: 39px;">
+            <button class="circularHover" style="width: 35px; height: 35px;" *ngIf="inputText.length > 0"
+                (click)="deleteInputText()">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18 17.94 6M18 18 6.06 6" />
+                </svg>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="outputTextArea">
+        <div class="textarea">
+            <div class="textareaEditable" id="textareaEditable2" autofocus name="textareaEditable"
+                (input)="adjustTextareaHeight($event)">
+            </div>
+        </div>
+        <div class="gap" style="width: 39px;"></div>
+    </div>
+
+
+</div>

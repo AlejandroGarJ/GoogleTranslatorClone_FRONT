@@ -103,8 +103,35 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@puppeteer/ng-schematics:puppeteer",
+          "options": {
+            "devServerTarget": "GoogleTranslatorClone:serve",
+            "testRunner": "node"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "GoogleTranslatorClone:serve:production"
+            }
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9963c85f-a8fa-44df-8092-d7c56ddd4f59",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
