@@ -1,1 +1,1 @@
-export const apiUrl = "http://localhost:57992";
+export const apiUrl = "https://googletranslatorclone-back.onrender.com";
