@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { apiUrl } from '../../../../environment/environment';
+import { environment} from '../../../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { Language } from '../../../shared/models/language';
 import { } from 'rxjs';
@@ -29,7 +29,7 @@ export class LanguagesListComponent implements OnInit {
   constructor(private http: HttpClient, private store: Store,
     public languageService: LanguageService
   ) {
-    this.http.get<JSON>(apiUrl + "/languageList").subscribe(
+    this.http.get<JSON>(environment.apiUrl + "/languageList").subscribe(
       (response) => {
         Object.entries(response).forEach(([prefix, value]) => {
           this.languageList.push({ prefix, value, selected: false })

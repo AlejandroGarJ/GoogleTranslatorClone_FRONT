@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { apiUrl } from '../../../../environment/environment';
+import { environment } from '../../../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
 import { LanguageService } from '../language.service';
@@ -82,7 +82,7 @@ export class TranslatorTextAreaComponent implements AfterViewInit {
   }
 
   translate(value: any) {
-    this.http.post<any>(apiUrl + "/translate", { inputLanguage: this.languageService.languageSelected.prefix, inputText: value, language: this.languageService.outputLanguage.prefix }).subscribe(
+    this.http.post<any>(environment.apiUrl + "/translate", { inputLanguage: this.languageService.languageSelected.prefix, inputText: value, language: this.languageService.outputLanguage.prefix }).subscribe(
       (response) => {
         const textarea = document.getElementById('textareaEditable') as HTMLTextAreaElement;
         const textarea2 = document.getElementById('textareaEditable2') as HTMLTextAreaElement;
