@@ -15,30 +15,20 @@
                 </svg>
                 <div>Texto</div>
             </div>
-            <div class="translationType">
-                <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="ep0rzf NMm5M">
-                    <path
-                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 9h10.5v3.5H4V9zm0 5.5h10.5V18H4v-3.5zM20 18h-3.5V9H20v9z">
-                    </path>
-                </svg>
-                <div>Sitios web</div>
-            </div>
         </div>
 
         <div class="languages">
-
             <div class="inputLanguages">
                 <ng-container *ngFor="let inputLanguage of inputLanguages">
                     <app-language-tab [textName]="inputLanguage.value" [selected]="inputLanguage.selected"
                         (click)="selectInputLanguage(inputLanguage)"></app-language-tab>
                 </ng-container>
-
                 <app-dropdown-icon class="showLanguageListDropdwon" style="margin-left: 15px;"
                     (click)="languageService.outputSelected = false;handleShowLanguageList(0); languageService.outputSelected=false"
                     [rotated]="showLanguageList[0]"></app-dropdown-icon>
             </div>
 
-            <div class="circularHover" (click)="switchLanguages()">
+            <div class="circularHover" (click)="switchLanguages()" [ngStyle]="{'pointer-events' : autoLanguageSelected() ? 'none' : 'auto'}">
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -29,9 +29,6 @@ export class LanguagesListComponent implements OnInit {
   constructor(private http: HttpClient, private store: Store,
     public languageService: LanguageService
   ) {
-
-    console.log("Hola holita");
-
     this.http.get<JSON>(apiUrl + "/languageList").subscribe(
       (response) => {
         Object.entries(response).forEach(([prefix, value]) => {
@@ -51,8 +48,6 @@ export class LanguagesListComponent implements OnInit {
 
 
   ngOnInit() {
-
-    console.log("init");
   }
 
   searchLanguage() {
@@ -87,7 +82,6 @@ export class LanguagesListComponent implements OnInit {
 
     }
     this.distributeLanguageColumns();
-    console.log(this.languageService.outputSelected);
   }
 
 

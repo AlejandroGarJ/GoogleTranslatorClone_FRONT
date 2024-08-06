@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { Language } from '../../../shared/models/language';
 import { LanguageService } from '../language.service';
 export enum TranslationTypes {
@@ -66,7 +66,6 @@ export class MainComponent implements OnInit {
 
         }
         else {
-          console.log(this.languageService.outputSelected);
           this.outputLanguages.forEach(outputLanguage => {
             if (outputLanguage.prefix === this.languageService.outputLanguage.prefix) {
               outputLanguage.selected = true;
@@ -182,11 +181,62 @@ export class MainComponent implements OnInit {
   }
 
   switchLanguages() {
-    const inputSelected = this.inputLanguages.find(language => language.selected === true);
 
+    //Duplciate objects to not assign the same memory location
+    const inputSelected = Object.assign({}, this.inputLanguages.find(language => language.selected === true));
+    const outputSelected = Object.assign({}, this.outputLanguages.find(language => language.selected === true));
 
-    const auxiliarArray = [...this.outputLanguages];
-    const newInputArray = this.inputLanguages.slice(1);
+    if(inputSelected && outputSelected){
+
+      const inputSelectedIsAtOutput = !!this.outputLanguages.find(language => language.prefix === inputSelected.prefix);
+      const outputSelectedIsAtInput = !!this.inputLanguages.find(language => language.prefix === outputSelected.prefix);
+
+      if(inputSelectedIsAtOutput){
+        this.outputLanguages.forEach(language => {
+          if(language.prefix === inputSelected.prefix){
+            language.selected = true;
+          } else {
+            language.selected = false;
+          }
+        });
+      }else{
+        this.outputLanguages[2] = Object.assign({}, this.outputLanguages[1]);
+        this.outputLanguages[1] = Object.assign({}, this.outputLanguages[0]);
+        this.outputLanguages.forEach(language => {
+          if(language.selected === true){
+            language.selected = false;
+          }
+        })
+        this.outputLanguages[0] = inputSelected;
+      }
+
+      if(outputSelectedIsAtInput){
+        this.inputLanguages.forEach(language => {
+          if(language.prefix === outputSelected.prefix){
+            language.selected = true;
+          } else {
+            language.selected = false;
+          }
+        });
+      } else{
+        this.inputLanguages[3] = Object.assign({}, this.inputLanguages[2]);
+        this.inputLanguages[2] = Object.assign({}, this.inputLanguages[1]);
+        this.inputLanguages.forEach(language => {
+          if(language.selected === true){
+            language.selected = false;
+          }
+        });
+        this.inputLanguages[1] = outputSelected;
+      }
+      
+
+    }
+
+  
+ /*    const inputSelected = this.inputLanguages.find(language => language.selected === true);
+
+    const auxiliarArray = [...this.outputLanguages]; //Duplicate outputLanguages array
+    const newInputArray = this.inputLanguages.slice(1); //Duplitace inptuArray starting from index 1 of array, because (0) is always 'Auto Detect' option
 
     this.outputLanguages = [...newInputArray];
     this.inputLanguages = this.inputLanguages.slice(0, 1)
@@ -203,7 +253,18 @@ export class MainComponent implements OnInit {
     this.outputLanguages.forEach(language => {
       if (language.selected === true) this.selectOutputLanguage(language);
     });
+ */
 
+  }
 
+  autoLanguageSelected(){
+    const inputLanguage = this.inputLanguages.find(language => language.selected === true);
+
+    if(inputLanguage){
+      return inputLanguage.prefix === 'auto';
+    }else {
+      return false;
+    }
+   
   }
 }

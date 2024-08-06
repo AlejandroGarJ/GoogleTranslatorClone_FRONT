@@ -23,7 +23,7 @@ export class LanguageService {
       selected: true
     }
   }
-
+  
   selectLanguage(language: Language) {
     if (this.outputSelected) this.selectOutputLanguage(language);
     else {

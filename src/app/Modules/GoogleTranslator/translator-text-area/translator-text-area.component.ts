@@ -71,10 +71,8 @@ export class TranslatorTextAreaComponent implements AfterViewInit {
       () => {
         const textarea = document.getElementById('textareaEditable') as HTMLTextAreaElement;
         if (textarea.textContent || textarea.textContent != '') {
-          console.log("No es vacio");
           this.translate(textarea.textContent);
         } else {
-          console.log('Es vacio');
           textarea.textContent = ''
           const textarea2 = document.getElementById('textareaEditable2') as HTMLTextAreaElement;
           textarea2.textContent = '';
@@ -84,7 +82,6 @@ export class TranslatorTextAreaComponent implements AfterViewInit {
   }
 
   translate(value: any) {
-
     this.http.post<any>(apiUrl + "/translate", { inputLanguage: this.languageService.languageSelected.prefix, inputText: value, language: this.languageService.outputLanguage.prefix }).subscribe(
       (response) => {
         const textarea = document.getElementById('textareaEditable') as HTMLTextAreaElement;
