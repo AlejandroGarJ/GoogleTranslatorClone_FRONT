@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { environment } from '../../../../environment/environment';
+import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, fromEvent, map } from 'rxjs';
 import { LanguageService } from '../language.service';

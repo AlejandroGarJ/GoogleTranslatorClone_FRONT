@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
-import { environment} from '../../../../environment/environment';
+import { environment} from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Language } from '../../../shared/models/language';
 import { } from 'rxjs';
