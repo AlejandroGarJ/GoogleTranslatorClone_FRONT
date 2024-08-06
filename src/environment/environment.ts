@@ -1,5 +1,5 @@
 export const environment = {
  production: false,
- apiUrl:   "https://googletranslatorclone-back.onrender.com"
+ apiUrl:   "http://localhost:57992"
 }
     
